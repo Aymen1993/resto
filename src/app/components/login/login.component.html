@@ -1,0 +1,47 @@
+<section class="regervation_part section_padding" style="margin-top: 100px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="section_tittle">
+                    <h2>Login</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="regervation_part_iner">
+                    <form [formGroup]="loginForm">
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <input type="email" class="form-control" formControlName="email" placeholder="Email">
+                                <div
+                                    *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)">
+                                    <div class="FormError" *ngIf="loginForm.controls['email'].errors.required"> Email is
+                                        required</div>
+                                    <div class="FormError" *ngIf="loginForm.controls['email'].errors.email">Email form
+                                        is invalid</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="password" class="form-control" formControlName="pwd"
+                                    placeholder="Password">
+                                <div
+                                    *ngIf="loginForm.controls['pwd'].invalid && ( loginForm.controls['pwd'].dirty || loginForm.controls['pwd'].touched)">
+
+                                    <div class="FormError" *ngIf="loginForm.controls['pwd'].errors.required"> Password is required</div>
+                                </div>
+                                <div *ngIf="notFound" class="FormError">Check your email or password</div>
+                            </div>
+                        </div>
+                        <div class="regerv_btn text-center col-md-12">
+                            <button class="btn_4" (click)="login()" [disabled]="loginForm.invalid" style="border: transparent;">Login</button>
+                            <div class="mt-5 text-center">
+                                <p style="color: aliceblue;">You don't have an account? <a style="color: blue;" (click)="goToSignup()">Signup</a></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

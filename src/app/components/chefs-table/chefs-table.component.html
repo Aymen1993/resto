@@ -1,0 +1,26 @@
+<table class="table text-center">
+    <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Speciality</th>
+        <th>Experience</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let chef of chefs">
+            <td class="text-break">{{chef._id}}</td>
+            <td>{{chef.name}}</td>
+            <td>{{chef.speciality}}</td>
+            <td>{{chef.experience}}</td>
+            <td class="d-flex justify-content-between">
+                <button class="btn btn-success" style="border: transparent;" (click)="displayChef(chef)">Display</button>
+                <button class="btn btn-warning" style="border: transparent;" (click)="goToEdit(chef._id)">Edit</button>
+                <button class="btn btn-danger" style="border: transparent;" (click)="deleteChef(chef._id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div *ngIf="display" class="d-flex justify-content-center">
+    <app-chef [chefInput]="chef"></app-chef>
+
+</div>

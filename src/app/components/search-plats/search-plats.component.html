@@ -1,0 +1,41 @@
+<section class="regervation_part section_padding" style="margin-top: 100px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="section_tittle">
+                    <h2>Search</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="regervation_part_iner">
+                    <form #searchForm="ngForm" (ngSubmit)="search()">
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" [(ngModel)]="plat.name"  [ngModelOptions]="{standalone:true}" placeholder="Name">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="number" class="form-control" [(ngModel)]="plat.price" [ngModelOptions]="{standalone:true}" placeholder="price">
+                            </div>
+                        </div>
+                        <div class="regerv_btn text-center col-md-12">
+                            <button class="btn_4" style="border: transparent;">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div *ngIf="plats?.length==0" class="col-lg-6 text-danger">
+                <b class="text-center" style="font-size: 30px;">Not Found</b> 
+            </div>
+        </div>
+    </div>
+    
+</section>
+<div class="container">
+    <div class="row  tab-content" style="margin-top: 40px;">
+        <div class="col-sm-6 col-lg-6" style="margin-top: 20px;" *ngFor="let elt of plats">
+            <app-plat [platInput]="elt"></app-plat>
+        </div>
+    </div>
+</div>

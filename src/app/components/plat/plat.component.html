@@ -1,0 +1,9 @@
+<div class="single_food_item media">
+    <!-- <img src={{platInput.platImg}} class="mr-3" alt="..."> -->
+    <img src="{{platInput.photo}}" class="mr-3">
+    <div class="media-body align-self-center">
+        <h3>{{platInput.name}}</h3>
+        <p>{{platInput.description}}</p>
+        <h5 [ngStyle]="{'color':priceColor(platInput.price)}">{{platInput.price | currency: 'EUR' : 'symbol'}}</h5>
+    </div>
+</div>

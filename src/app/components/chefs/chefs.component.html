@@ -1,0 +1,21 @@
+<section class="chefs_part blog_item_section section_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5">
+                <div class="section_tittle">
+                    <p>Team Member</p>
+                    <h2>Our Experience Chefs</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-lg-4" *ngFor="let elt of pageOfItems" style="margin-top: 40px;">
+                <app-chef [chefInput]="elt"></app-chef>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center" style="margin-top: 40px;">
+            <jw-pagination [items]="chefs" [pageSize]="6" (changePage)="onChangePage($event)">
+            </jw-pagination>
+        </div>
+    </div>
+</section>

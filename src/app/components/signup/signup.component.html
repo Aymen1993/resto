@@ -1,0 +1,154 @@
+<section class="regervation_part section_padding" style="margin-top: 120px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="section_tittle">
+                    <h2>Signup</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="regervation_part_iner">
+                    <form [formGroup]="signupForm">
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <input type="text" formControlName="firstName" class="form-control text-capitalize"
+                                    placeholder="First Name">
+                                <div
+                                    *ngIf="signupForm.controls['firstName'].invalid &&(signupForm.controls['firstName'].touched || signupForm.controls['firstName'].dirty) ">
+                                    <div class="is-invalid'" *ngIf="signupForm.controls['firstName'].errors.required">
+                                        First Name is required
+                                    </div>
+                                    <div class="is-invalid'" *ngIf="signupForm.controls['firstName'].errors.minlength">
+                                        First name must at least have 3 chars
+                                    </div>
+                                    <div class="is-invalid'" *ngIf="signupForm.controls['firstName'].errors.maxlength">
+                                        First name must at most have 20 chars
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-6">
+                                <input type="text" formControlName="lastName" class="form-control text-capitalize"
+                                    placeholder="Last Name">
+                                <div
+                                    *ngIf="signupForm.controls['lastName'].invalid &&(signupForm.controls['lastName'].dirty||signupForm.controls['lastName'].touched)">
+                                    <div class="text-danger" *ngIf="signupForm.controls['lastName'].errors.required">
+                                        Last name is required
+                                    </div>
+                                    <div class="text-danger" *ngIf="signupForm.controls['lastName'].errors.minlength">
+                                        Last name must at least have 5 chars
+                                    </div>
+                                    <div class="text-danger" *ngIf="signupForm.controls['lastName'].errors.maxlength">
+                                        Last name must at most have 15 chars
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <input type="email" formControlName="email" class="form-control" placeholder="Email">
+                                <div *ngIf="signupForm.controls['email'].invalid &&
+                                (signupForm.controls['email'].touched || signupForm.controls['email'].dirty) ">
+                                    <div class="text-danger" *ngIf="signupForm.controls['email'].errors.required">
+                                        Email is required
+                                    </div>
+                                    <div class="text-danger" *ngIf="signupForm.controls['email'].errors.email">
+                                        Form email is invalid
+                                    </div>
+                                </div>
+                                <div class="text-danger" *ngIf="emailExist">
+                                    Email already exists. Please choose a different one .
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <input type="text" formControlName="tel" class="form-control"
+                                    placeholder="Phone Number">
+                                <div *ngIf="signupForm.controls['tel'].invalid &&
+                                 (signupForm.controls['tel'].touched ||signupForm.controls['tel'].dirty)">
+                                    <div class="text-danger" *ngIf="signupForm.controls['tel'].errors.required">
+                                        Phone number is required
+                                    </div>
+                                    <div class="text-danger" *ngIf="signupForm.controls['tel'].errors.pattern">
+                                        Form Tel is invalid
+                                    </div>
+                                </div>
+                                <div class="text-danger" *ngIf="telExist">
+                                    Tel already exists. Please choose a different one .
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <input type="password" formControlName="pwd" class="form-control"
+                                    placeholder="Password">
+                            </div>
+                            <div class="form-group col-md-12" *ngIf="signupForm.controls['pwd'].invalid &&
+                                 (signupForm.controls['pwd'].touched ||signupForm.controls['pwd'].dirty)">
+                                <div class="text-danger" *ngIf="signupForm.controls['pwd'].errors.required">
+                                    Password is required
+                                </div>
+                                <div class="text-danger" *ngIf="signupForm.controls['pwd'].errors.minlength">
+                                    Password must at least have 6 chars
+                                </div>
+                                <div class="text-danger" *ngIf="signupForm.controls['pwd'].errors.maxlength">
+                                    Password must at most have 16 chars
+                                </div>
+                                <div class="text-danger" *ngIf="signupForm.controls['pwd'].errors.pattern">
+                                    Password must at least have 1 upper case letter ,1 lower case letter,1 number and 1
+                                    special character
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="password" formControlName="confirmPwd" class="form-control"
+                                    placeholder="Confirm Password">
+                            </div>
+                            <div class="form-group"
+                                *ngIf="signupForm.controls['confirmPwd'].invalid &&
+                                (signupForm.controls['confirmPwd'].touched || signupForm.controls['confirmPwd'].dirty)">
+                                <div class="text-danger" *ngIf="signupForm.controls['confirmPwd'].errors.mustMatch">
+                                    Confirm Pwd does not match Pwd
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group text-secondary">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" formControlName="gender"
+                                    value="0" checked>
+                                <label class="form-check-label " for="exampleRadios1">
+                                    Man
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" formControlName="gender"
+                                    value="1">
+                                <label class="form-check-label" for="exampleRadios2">
+                                    Woman
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" formControlName="gender"
+                                    value="-1">
+                                <label class="form-check-label" for="exampleRadios3">
+                                    Other
+                                </label>
+                            </div>
+                        </div>
+                        <div class="regerv_btn text-center col-md-12">
+                            <button class="btn_4" (click)="signup()" [disabled]="signupForm.invalid"
+                                style="border: transparent;">Signup</button>
+                            <div class="mt-5 text-center">
+                                <p style="color: aliceblue;">
+                                    You don't have an account?
+                                    <a style="color: blue;" (click)="goToLogin()">Login</a>
+                                </p>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

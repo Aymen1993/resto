@@ -1,0 +1,56 @@
+<section class="regervation_part section_padding" style="margin-top: 100px;">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-6">
+                <div class="section_tittle">
+                    <h2>{{title}}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex flex justify-content-center">
+            <div class="col-lg-6">
+                <div class="regervation_part_iner">
+                    <form #chefForm="ngForm" (ngSubmit)="chefForm.form.valid && addChef()">
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <input type="text" class="form-control" [(ngModel)]="chef.name"
+                                    [ngModelOptions]="{standalone: true}" placeholder="Name" #name="ngModel"
+                                    [ngClass]="{ 'is-invalid': chefForm.submitted && name.invalid }" minlength="4"
+                                    required>
+                                <div *ngIf="(name.touched|| name.dirty||chefForm.submitted ) && name.invalid"
+                                    class="text-danger">
+                                    <div *ngIf="name.errors.required">Name is required</div>
+                                    <div *ngIf="name.errors.minlength">
+                                        Name must have at least 4 characters
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-8">
+                                <input type="text" class="form-control" [(ngModel)]="chef.speciality"
+                                    [ngModelOptions]="{standalone: true}" placeholder="Speciality" #speciality="ngModel"
+                                    [ngClass]="{ 'is-invalid': chefForm.submitted && speciality.invalid }" required>
+                                <div *ngIf="(speciality.touched|| speciality.dirty ||chefForm.submitted)&& speciality.invalid"
+                                    class="text-danger">
+                                    <div *ngIf="speciality.errors.required">Speciality is required</div>
+
+                                </div>
+                            </div>
+                            <div class="form-group col-md-8">
+                                <input class="form-control" [(ngModel)]="chef.experience"
+                                    [ngModelOptions]="{standalone: true}" placeholder="Experience" #experience="ngModel"
+                                    [ngClass]="{ 'is-invalid': chefForm.submitted && experience.invalid }" required>
+                                <div *ngIf="(experience.touched|| experience.dirty ||chefForm.submitted) && experience.invalid"
+                                    class="text-danger">
+                                    <div *ngIf="experience.errors.required">Experience is required</div>
+                                </div>
+                                <div class="regerv_btn text-center col-md-7">
+                                    <button type="submit" class="btn_4" style="border: transparent;">{{title}}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

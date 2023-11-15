@@ -1,0 +1,53 @@
+<section class="regervation_part section_padding" style="margin-top: 100px;">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-3">
+                <div class="section_tittle">
+                    <h2>Admin Page</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="food_menu gray_bg" style="padding-top: 10px;">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-12">
+                <div class="nav nav-tabs food_menu_nav" id="myTab" role="tablist">
+                    <a class="active" id="Plats-tab" data-toggle="tab" href="#Plats" role="tab" aria-controls="Plats"
+                        aria-selected="false">Plats <img src="assets/img/icon/play.svg" alt="play"></a>
+                    <a id="Chefs-tab" data-toggle="tab" href="#Chefs" role="tab" aria-controls="Chefs"
+                        aria-selected="false">Chefs <img src="assets/img/icon/play.svg" alt="play"></a>
+                    <a id="Users-tab" data-toggle="tab" href="#Users" role="tab" aria-controls="Users"
+                        aria-selected="false">Users <img src="assets/img/icon/play.svg" alt="play"></a>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active single-member" id="Plats" role="tabpanel"
+                        aria-labelledby="Plats-tab">
+                        <div class="row">
+                            <div class="table-responsive">
+                                <app-plats-table user="admin"></app-plats-table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade single-member" id="Chefs" role="tabpanel" aria-labelledby="Chefs-tab">
+                        <div class="row">
+                            <div class="table-responsive">
+                                <app-chefs-table></app-chefs-table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade single-member" id="Users" role="tabpanel" aria-labelledby="Users-tab">
+                        <div class="row">
+                            <div class="table-responsive">
+                                <app-users-table></app-users-table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
